@@ -1,6 +1,7 @@
 <h2>Products</h2>
 <div class="row" style="margin-top: 20px;">
     <div class="col-3" *ngFor="let product of products">
-        <app-item-product [productId]="product.productId" [productImage]="product.productImage" [productDetail]="product.productDetail" [price]="product.price"/>
+        <app-item-product (selected)="productSelected($event)" [productId]="product.productId" [productName]="product.productName" [productImage]="product.productImage" [productDetail]="product.productDetail" [price]="product.price"/>
     </div>
 </div>
+<app-modal-product [product]="product" (closeModal)="isModalVisible=false" [isModalVisible]="isModalVisible"/>

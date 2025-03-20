@@ -3,9 +3,9 @@
         <img [src]="productImage" [alt]="'product '+productId">
     </div>
     <div class="card-body">
-        <h5 class="card-title">{{productName}}</h5>
-        <p class="card-text">{{productDetail}}</p>
+        <h5 class="card-title" [title]="productName">{{limitCharacters(productName,15)}}</h5>
+        <p class="card-text" [title]="productDetail">{{ limitCharacters(productDetail, 30)}}</p>
         <p class="price">{{price}}</p>
-        <button class="btn btn-primary">Add to Cart</button>
+        <button class="btn btn-primary" (click)="onPreview()">Preview</button>
     </div>
 </div>
