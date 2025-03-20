@@ -1,0 +1,6 @@
+<h2>Products</h2>
+<div class="row" style="margin-top: 20px;">
+    <div class="col-3" *ngFor="let product of products">
+        <app-item-product [productId]="product.productId" [productImage]="product.productImage" [productDetail]="product.productDetail" [price]="product.price"/>
+    </div>
+</div>
