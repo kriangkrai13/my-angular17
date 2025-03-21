@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product} from '../../products';
+import { CartService, CartItem } from '../../cart.service';
 
 @Component({
   selector: 'app-item-product',
@@ -15,6 +16,7 @@ export class ItemComponent {
   @Input() productImage!:string;
   @Input() price!:number;
   @Output() selected = new EventEmitter<Product>();
+  constructor(private cartService:CartService){};
   onPreview() {
     this.selected.emit({
       productId: this.productId,
@@ -24,7 +26,15 @@ export class ItemComponent {
       price: this.price,
     });
   }
-
+  onAddCart(){
+    console.log('add cart');
+    this.cartService.add({
+      id: this.productId,
+      name: this.productName,
+      price: this.price,
+      qty: 1
+    });
+  }
   limitCharacters(text:string, limit:number) {
     return text.length > limit ? text.slice(0, limit) + "..." : text;
   }

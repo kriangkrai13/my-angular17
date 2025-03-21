@@ -1,0 +1,13 @@
+<div>
+    <h2>Cart</h2>
+    <div *ngIf="carts.length === 0; else cartItems">
+        <p>No items in cart</p>
+    </div>
+    <ng-template #cartItems>
+        <div class="row">
+            <div class="col-12" *ngFor="let cart of carts; let i = index">
+                <p>{{i+1}} : {{cart.name}}  | price > {{cart.price}} qty. {{cart.qty}}</p>
+            </div>
+        </div>
+    </ng-template>
+</div>
