@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router'; // ✅ ใช้ RouterModule
-import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent], // ✅ AppComponent ห้ามใช้ standalone: true
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes), // ✅ กำหนด Routing ให้แอป
+    RouterModule.forRoot(routes),
     HttpClientModule
 ],
-  providers: [],
-  bootstrap: [AppComponent], // ✅ Bootstrap ด้วย AppComponent
+  providers: []
 })
 export class AppModule {}
